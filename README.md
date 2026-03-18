@@ -20,7 +20,7 @@
 <img width="859" height="462" alt="image" src="https://github.com/user-attachments/assets/6f7e77e7-f021-4ad7-95c7-37145d1143aa" />
 
 
-<img width="1031" height="223" alt="image" src="https://github.com/user-attachments/assets/7f54ecc3-ff75-4ff4-99db-247b29caa02b" />
+<img width="1076" height="622" alt="image" src="https://github.com/user-attachments/assets/fd82029e-6e6f-4732-9311-dedf10aba279" />
 
 
 3. Вывод процессов `nginx` в виде дерева через `htop`

@@ -63,32 +63,38 @@
 
 # Задача: Установить Redis и запустить второй экземпляр.
 
-1. Установил redis
+1. Установил `redis`
+
+<img width="1105" height="406" alt="image" src="https://github.com/user-attachments/assets/55aecc1a-d8ba-4320-9f28-2d0b6f64b86e" />
 
 
-
-2. Что я сделал исследовал где находятся файлы redis и начал создавать рядом их копии в этих же директориях
+2. Что я сделал исследовал где находятся файлы `redis` и начал создавать рядом их копии в этих же директориях
  
-   - sudo mkdir /etc/redis-secondary
+   `- sudo mkdir /etc/redis-secondary`
 
-   - sudo mkdir /var/lib/redis-secondary
+   `- sudo mkdir /var/lib/redis-secondary`
 
-   - sudo mkdir /var/log/redis-secondaty
+   `- sudo mkdir /var/log/redis-secondaty`
 
-   - sudo mkdir /run/redis-secondary
+   `- sudo mkdir /run/redis-secondary`
  
-   - Скопировал конфиг /etc/redis/redis.conf в /etc/redis-secondary/redis.conf ---> единственное что нужно поменять это порт(обязательнео еще раз проверить права)
+   - Скопировал конфиг `/etc/redis/redis.conf` в `/etc/redis-secondary/redis.conf` ---> единственное что нужно поменять это порт(обязательнео еще раз проверить права)
  
-   - Далее используем chown redis:redis на каждую созданную директорию и файл
+   - Далее используем `chown redis:redis` на каждую созданную директорию и файл
 
-   - sudo journalctl -u redis-secondary -n 50 --no-pager --> Использовал для поиска ошибок(сам нарвался на недостаток прав)
+   `- sudo journalctl -u redis-secondary -n 50 --no-pager` --> Использовал для поиска ошибок(сам нарвался на недостаток прав)
 
-   - Далее создаем unit файл /etc/systemd/system/redis-secondary.service и заполняем скриншот ниже(можно еще убрать restart чтоб экземляр не вставал сам)
+   - Далее создаем `unit` файл `/etc/systemd/system/redis-secondary.service` и заполняем скриншот ниже(можно еще убрать restart чтоб экземляр не вставал сам)
 
-   - Делаем копию ppid файл из /run/redis в /run/redis-secondary
+   - Делаем копию `ppid` файл из `/run/redis` в `/run/redis-secondary`
+
+<img width="1074" height="559" alt="image" src="https://github.com/user-attachments/assets/367c255e-3f37-4d95-b765-18311790987a" />
 
 
 3. Скриншот обоих экземпляров
+
+<img width="1194" height="749" alt="image" src="https://github.com/user-attachments/assets/ba85294d-9cdd-415e-8dce-242cfbef2bf5" />
+
 
 
 

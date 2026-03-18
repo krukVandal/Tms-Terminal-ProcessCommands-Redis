@@ -61,3 +61,34 @@
 
 
 
+# Задача: Установить Redis и запустить второй экземпляр.
+
+1. Установил redis
+
+
+
+2. Что я сделал исследовал где находятся файлы redis и начал создавать рядом их копии в этих же директориях
+ 
+   - sudo mkdir /etc/redis-secondary
+
+   - sudo mkdir /var/lib/redis-secondary
+
+   - sudo mkdir /var/log/redis-secondaty
+
+   - sudo mkdir /run/redis-secondary
+ 
+   - Скопировал конфиг /etc/redis/redis.conf в /etc/redis-secondary/redis.conf ---> единственное что нужно поменять это порт(обязательнео еще раз проверить права)
+ 
+   - Далее используем chown redis:redis на каждую созданную директорию и файл
+
+   - sudo journalctl -u redis-secondary -n 50 --no-pager --> Использовал для поиска ошибок(сам нарвался на недостаток прав)
+
+   - Далее создаем unit файл /etc/systemd/system/redis-secondary.service и заполняем скриншот ниже(можно еще убрать restart чтоб экземляр не вставал сам)
+
+   - Делаем копию ppid файл из /run/redis в /run/redis-secondary
+
+
+3. Скриншот обоих экземпляров
+
+
+
